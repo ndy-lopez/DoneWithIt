@@ -1,21 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, SafeAreaView, Alert, Button } from "react-native";
+import React from "react";
+import {
+  Dimensions,
+  StyleSheet,
+  SafeAreaView,
+  StatusBar,
+  Platform,
+  View,
+} from "react-native";
+import { useDimensions } from "@react-native-community/hooks";
 
 export default function App() {
-  const handlePress = () => console.log("Text pressed");
+  console.log(useDimensions());
 
   return (
     <SafeAreaView style={styles.container}>
-      <Button
-        color="orange"
-        title="Click Me"
-        onPress={() =>
-          Alert.alert("My title", "My message", [
-            { text: "Yes", onPress: () => console.log("Yes") },
-            { text: "No", onPress: () => console.log("No") },
-          ])
-        }
-      />
+      <View
+        style={{ backgroundColor: "dodgerblue", width: "100%", height: "30%" }}
+      ></View>
     </SafeAreaView>
   );
 }
