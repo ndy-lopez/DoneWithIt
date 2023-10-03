@@ -1,5 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image, SafeAreaView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+  Image,
+  SafeAreaView,
+} from "react-native";
 
 export default function App() {
   const handlePress = () => console.log("Text pressed");
@@ -9,11 +16,17 @@ export default function App() {
       <Text numberOfLines={1} onPress={handlePress}>
         Hello React Native
       </Text>
-      <Image
-        source={{ uri: "https://picsum.photos/300/600" }}
-        width={200}
-        height={300}
-      />
+      <TouchableWithoutFeedback onPress={() => console.log("Image tapped")}>
+        <Image
+          source={{
+            blurRadius: 10,
+            fadeDuration: 1000,
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300",
+          }}
+        />
+      </TouchableWithoutFeedback>
       <StatusBar style="auto" />
     </SafeAreaView>
   );
